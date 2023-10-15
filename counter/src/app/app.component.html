@@ -1,0 +1,64 @@
+<!-- Page Heading -->
+<div class="p-2 text-center bg-light">
+  <h2 class="mb-3">Counter</h2>
+</div>
+
+  <!-- Add Counter button-->
+  <div class="add-counter">
+    <button
+      id="add"
+      type="submit"
+      (click)="addCounter()"
+      class="btn btn-primary"
+    >
+      Add Counter
+    </button>
+  </div>
+
+<!-- Counters -->
+<div class="services_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4" *ngFor="let counter of counters">
+        <div class="counter-box">
+          <h4>{{counter.name}}</h4> <!-- Counter Name-->
+          <h5>{{counter.count}}</h5> <!-- Counter Count-->
+
+          <div class="btn-container">
+            <!-- Increase Counter button-->
+            <button
+              id="increase"
+              type="button"
+              class="btn btn-primary"
+              (click)="increase(counter.id)"
+            >
+              +
+            </button>
+
+            <!-- Decrease Counter button-->
+            <button
+              id="decrease"
+              type="button"
+              class="btn btn-danger"
+              (click)="decrease(counter.id)"
+            >
+              -
+            </button>
+          </div>
+
+          <!-- Delete Counter button-->
+          <button
+            id="remove"
+            type="submit"
+            class="btn btn-warning remove"
+            (click)="deleteCounter(counter.id)"
+          >
+            Remove Counter
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
